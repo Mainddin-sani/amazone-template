@@ -1,0 +1,11 @@
+.products-container {
+    display: flex;
+}
+.ic-left-cart {
+    flex: 0 0 70%;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+.cart-items {
+    padding: 10px;
+}
