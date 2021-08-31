@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import './shop.css';
 import loadData from '../../fakeData';
 import Product from '../products/Product';
+import Cart from '../cart/Cart';
 
 const Shop = () => {
     const first20 = loadData.slice(0,20);
     const [products, setProducts] = useState(first20);
-    const [cart, setCart] =useState([])
+    const [cart, setCart] =useState([]);
 
     const productsClickHandler = (products)=> {
-        console.log(products);
-        console.log(cart);
         const newCart = [...cart, products];
         setCart(newCart)
     }
@@ -26,8 +25,7 @@ const Shop = () => {
                 </ul>
             </div>
             <div className="cart-items">
-                <h3>Cart Items</h3>
-                <p>cart Items {cart.length}</p>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     );
