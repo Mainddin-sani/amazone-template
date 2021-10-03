@@ -1,10 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
-    console.log(props);
     const cartNumber = props.cart;
-    console.log(cartNumber);
-    console.log(cartNumber.price);
     
     let total = 0;
     for (let i = 0; i < cartNumber.length; i++) {
@@ -21,7 +19,6 @@ const Cart = (props) => {
     }else if(total > 0){
         shipping = 12.5;
     }
-    
     
     let tax = (total / 10);
 
@@ -40,6 +37,7 @@ const Cart = (props) => {
             <p>Shipping : {shipping}</p>
             <p>Total Price : {formatNumber(grandTotal)} </p>
             
+            <button><Link to="/review">Review</Link></button>
             
         </div>
     );

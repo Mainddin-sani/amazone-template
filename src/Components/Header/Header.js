@@ -16,7 +16,10 @@ const Header = () => {
                     <a href="/review">Review</a>
                 </li>
                 <li>
-                    <a href="/manage">Manage Inventory</a>
+                    <a href="/manage">Manage </a>
+                </li>
+                <li>
+                    <a href="/inventory"> Inventory</a>
                 </li>
             </ul>
         </div>

@@ -3,15 +3,20 @@ import './shop.css';
 import loadData from '../../fakeData';
 import Product from '../products/Product';
 import Cart from '../cart/Cart';
+import { addToDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const first20 = loadData.slice(0,20);
     const [products, setProducts] = useState(first20);
-    const [cart, setCart] =useState([]);
+    const [cart, setCart] = useState([]);
 
     const productsClickHandler = (products)=> {
         const newCart = [...cart, products];
-        setCart(newCart)
+        setCart(newCart);
+        const sameProducts = newCart.filter(pd => pd.key === products.key)
+        const count = sameProducts.length;
+        // setProducts(count);
+        addToDatabaseCart(products.key, count);
     }
 
     return (
@@ -20,7 +25,7 @@ const Shop = () => {
             <div className="ic-left-cart">
                 <ul>
                 {
-                    products.map(product => <Product clicAddkHandle={productsClickHandler} productsItems={product}></Product>)
+                    products.map(product => <Product key={product.key} buttonAddTocart={true} clicAddkHandle={productsClickHandler} productsItems={product}></Product>)
                 }
                 </ul>
             </div>
