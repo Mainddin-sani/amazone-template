@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import "./header.css";
@@ -21,6 +20,9 @@ const Header = () => {
         </li>
         <li>
           <Link to="/inventory"> Inventory</Link>
+        </li>
+        <li>
+          <button onClick={() => setUserLoggedIn({})}>Log Out</button>
         </li>
       </ul>
     </div>
